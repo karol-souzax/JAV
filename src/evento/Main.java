@@ -20,7 +20,7 @@ public class Main {
         ab.calcularPremio();
         System.out.println();
 
-// vai chamar os dois construtores
+// vai chamar os dois construtores--
         ac.mostrarInfo(6);
         ac.calcularPremio();
     }
