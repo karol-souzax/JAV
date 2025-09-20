@@ -1,4 +1,4 @@
-package exercicios.java;
+package POO.java.java;
 // par ou impar
 import java.util.Scanner;
 public class ati {

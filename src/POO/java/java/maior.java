@@ -1,4 +1,4 @@
-package exercicios.java;
+package POO.java.java;
 import java.util.Scanner;
 // maior de 3 numeros
 

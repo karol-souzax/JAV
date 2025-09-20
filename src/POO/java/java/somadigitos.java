@@ -1,4 +1,4 @@
-package exercicios.java;
+package POO.java.java;
 import java.util.Scanner;
 // soma os digitos de um numero
 // ex: 1234 = 1+2+3+4 = 10
