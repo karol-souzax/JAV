@@ -1,4 +1,4 @@
-package evento;
+package fortunex.evento;
 
 // Superclasse abstrata
 public abstract class EventoEsportivo implements Aposta{

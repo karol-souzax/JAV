@@ -1,19 +1,19 @@
 package fortunex.repositorios;
 import fortunex.classes.Usuario;
-
+//
 public class repUsuario implements Repositorio<Usuario> {
     private Usuario[] usuarios;
-    private int indice;
+    private int indice;//indice para controlar a posicao do array
 
-    public repUsuario(int tamanho) {
+    public repUsuario(int tamanho) {//tamanho do array
         this.usuarios = new Usuario[tamanho];
         this.indice = 0;
     }
 
     @Override
-    public void inserir(Usuario obj) {
-        if (indice < usuarios.length) {
-            usuarios[indice] = obj;
+    public void inserir(Usuario obj) {//inserir um usuario no array
+        if (indice < usuarios.length) {//verifica se o array nao esta cheio
+            usuarios[indice] = obj;//insere o usuario na posicao do indice
             indice++;
         } else {
             System.out.println("Repositorio cheio, nao e possivel inserir novo usuario.");
@@ -21,9 +21,9 @@ public class repUsuario implements Repositorio<Usuario> {
     }
 
     @Override
-    public void atualizar(Usuario obj) {
-        for (int i = 0; i < indice; i++) {
-            if (usuarios[i].getId() == obj.getId()) {
+    public void atualizar(Usuario obj) {//atualiza um usuario no array
+        for (int i = 0; i < indice; i++) {//percorre o array
+            if (usuarios[i].getId() == obj.getId()) {//verifica se o id do usuario é igual ao id do usuario a ser atualizado
                 usuarios[i] = obj;
                 return;
             }
@@ -32,9 +32,9 @@ public class repUsuario implements Repositorio<Usuario> {
     }
 
     @Override
-    public void remover(int id) {
+    public void remover(int id) {//remove um usuario do array
         for (int i = 0; i < indice; i++) {
-            if (usuarios[i].getId() == id) {
+            if (usuarios[i].getId() == id) {//verifica se o id do usuario é igual ao id do usuario a ser removido
                 usuarios[i] = usuarios[indice - 1]; // Substitui pelo ultimo elemento
                 usuarios[indice - 1] = null; // Remove a referencia ao ultimo elemento
                 indice--;
@@ -56,9 +56,9 @@ public class repUsuario implements Repositorio<Usuario> {
     }
 
     @Override
-    public boolean existe(int id) {
-        for (int i = 0; i < indice; i++) {
-            if (usuarios[i].getId() == id) {
+    public boolean existe(int id) {//verifica se um usuario existe no array
+        for (int i = 0; i < indice; i++) {//percorre o array
+            if (usuarios[i].getId() == id) {//verifica se o id do usuario é igual ao id do usuario a ser verificado
                 return true;
             }
         }

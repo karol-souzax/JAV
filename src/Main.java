@@ -1,3 +1,7 @@
+import POO.java.ApostaBasquete;
+import POO.java.ApostaCorrida;
+import POO.java.ApostaFutebol;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 // Classe Main para testar

@@ -1,3 +1,5 @@
+package POO.java;
+
 // Classe abstrata (superclasse)
 abstract class Aposta {
     String usuario;
@@ -24,7 +26,7 @@ abstract class Aposta {
     abstract void calcularRetorno();
 }
 
-// Classe ApostaFutebol herda de Aposta
+// Classe POO.java.ApostaFutebol herda de POO.java.Aposta
 class ApostaFutebol extends Aposta {
     String time;
 
@@ -53,7 +55,7 @@ class ApostaFutebol extends Aposta {
     }
 }
 
-// Classe ApostaBasquete herda de Aposta
+// Classe POO.java.ApostaBasquete herda de POO.java.Aposta
 class ApostaBasquete extends Aposta {
     String equipe;
 
@@ -85,7 +87,7 @@ class ApostaBasquete extends Aposta {
     }
 }
 
-// Classe ApostaCorrida herda de Aposta
+// Classe POO.java.ApostaCorrida herda de POO.java.Aposta
 class ApostaCorrida extends Aposta {
     String piloto;
 

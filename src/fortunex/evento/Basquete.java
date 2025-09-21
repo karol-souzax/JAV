@@ -1,4 +1,4 @@
-package evento;
+package fortunex.evento;
 
 // Subclasse Basquete
 class Basquete extends EventoEsportivo {
