@@ -1,4 +1,4 @@
-package fortunex.evento;
+package POO.java.evento;
 
 // Subclasse Corrida
 public class Corrida extends EventoEsportivo {

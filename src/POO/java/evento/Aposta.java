@@ -1,4 +1,4 @@
-package fortunex.evento;
+package POO.java.evento;
 
 public interface Aposta {
     void calcularPremio();

@@ -1,4 +1,4 @@
-package fortunex.evento;
+package POO.java.evento;
 
 // Subclasse Futebol
 class Futebol extends EventoEsportivo {

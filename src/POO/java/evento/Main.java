@@ -1,4 +1,4 @@
-package fortunex.evento;
+package POO.java.evento;
 
 public class Main {
     public static void main(String[] args) {
