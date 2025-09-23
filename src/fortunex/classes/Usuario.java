@@ -1,13 +1,34 @@
 package fortunex.classes;
 import java.util.Scanner;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 public class Usuario extends rename {
 
-    String nome = "joao";
-}
+
+    public Usuario(String nome, String email, String senha) {
+
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Nome: ");
+            String nome = scanner.nextLine();
+            System.out.print("Email: ");
+            String email = scanner.nextLine();
+            System.out.print("Senha: ");
+            String senha = scanner.nextLine();
+
+            Usuario user = new Usuario(nome, email, senha);
+
+            System.out.print("Email para login: ");
+            String emailLogin = scanner.nextLine();
+            System.out.print("Senha para login: ");
+            String senhaLogin = scanner.nextLine();
+
+            }
+
+        }
+    }
 
 
 
