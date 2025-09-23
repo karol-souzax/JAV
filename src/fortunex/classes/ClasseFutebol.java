@@ -6,32 +6,33 @@ public class ClasseFutebol {
     private int golsCasa;
     private int golsVisitante;
 
-    public ClasseFutebol() {
+    public ClasseFutebol(String timeCasa, String timeVisitante) {
         this.timeCasa = timeCasa;
         this.timeVisitante = timeVisitante;
         this.golsCasa = 0;
         this.golsVisitante = 0;
-
     }
-    public void marcarGolsCasa(){
+
+    public void marcarGolCasa() {
         golsCasa++;
     }
-    public void marcarGolVisitante(){
+
+    public void marcarGolVisitante() {
         golsVisitante++;
     }
-    public void exibirPlacar(){
+
+    public void exibirPlacar() {
         System.out.println(timeCasa + " " + golsCasa + " x " + golsVisitante + " " + timeVisitante);
-
     }
-    public String resultado() {
-        if(golsCasa > golsVisitante){
-            return timeCasa + " vendeu !!";
-        } else if (golsVisitante > golsCasa){
-            return timeVisitante + "venceu !!";
-        } else {
-            return "empate !!";
 
+    public String resultado() {
+        if (golsCasa > golsVisitante) {
+            return timeCasa + " venceu!!";
+        } else if (golsVisitante > golsCasa) {
+            return timeVisitante + " venceu!!";
+        } else {
+            return "Empate!!";
         }
     }
-
 }
+
