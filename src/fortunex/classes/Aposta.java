@@ -2,8 +2,8 @@ package fortunex.classes;
 //aqui vai ser a classe abstrata que vai ser extendida pelas outras classes
 //ela vai ter os atributos e metodos comuns a todas as classes
 //e tambem vai ter os metodos abstratos que vao ser implementados nas subclasses
-    // Classe abstrata base
-    abstract class Aposta {
+    // Classe base
+    public class Aposta {
         protected double valorApostado;
         protected double odd; // multiplicador da aposta
 
@@ -17,9 +17,10 @@ package fortunex.classes;
             return valorApostado * odd;
         }
 
-        // Método abstrato que cada esporte vai implementar
-        public abstract void calcularOdds();
-
+        // Método que cada esporte vai implementar
+        public void calcularOdds(){
+            
+        }
         public double getOdd() {
             return odd;
         }
