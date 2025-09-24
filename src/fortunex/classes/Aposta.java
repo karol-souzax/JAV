@@ -1,41 +1,50 @@
 package fortunex.classes;
-//aqui vai ser a classe abstrata que vai ser extendida pelas outras classes
-//ela vai ter os atributos e metodos comuns a todas as classes
-//e tambem vai ter os metodos abstratos que vao ser implementados nas subclasses
-    // Classe base
-    public class Aposta {
-        protected double valorApostado;
-        protected double odd; // multiplicador da aposta
 
-        public Aposta(double valorApostado, double odd) {
-            this.valorApostado = valorApostado;
-            this.odd = odd;
-        }
-        // Método comum para calcular o retorno
-        public double calcularRetorno() {
-            return valorApostado * odd;
-        }
+public class Aposta {
+    protected int id; // Adicione um ID para identificar cada aposta
+    protected double valorApostado;
+    protected double odd; // multiplicador da aposta
 
-        // Método que cada esporte vai implementar
-        public void calcularOdds(){
-            
-        }
-        public double getOdd() {
-            return odd;
-        }
-
-        public double getValorApostado() {
-            return valorApostado;
-        }
+    // Atualize o construtor para receber o ID
+    public Aposta(int id, double valorApostado, double odd) {
+        this.id = id;
+        this.valorApostado = valorApostado;
+        this.odd = odd;
     }
+
+    // Adicione o método getID()
+    public int getID() {
+        return id;
+    }
+
+    // Método comum para calcular o retorno
+    public double calcularRetorno() {
+        return valorApostado * odd;
+    }
+
+    // Método que cada esporte vai implementar
+    public void calcularOdds(){
+
+    }
+    public double getOdd() {
+        return odd;
+    }
+
+    public double getValorApostado() {
+        return valorApostado;
+    }
+}
+// As subclasses JogoFutebol, Corrida e PartidaBasquete também precisarão ser atualizadas
+// para chamar o novo construtor da superclasse Aposta
 
     // Subclasse para Jogo de Futebol
     class JogoFutebol extends Aposta {
         private int golsTimeA;
         private int golsTimeB;
 
-        public JogoFutebol(double valorApostado, int golsTimeA, int golsTimeB) {
-            super(valorApostado, 0);
+        // Conteúdo da classe JogoFutebol
+        public JogoFutebol(int id, double valorApostado, int golsTimeA, int golsTimeB) {
+            super(id, valorApostado, 0); // O 'super' chama o construtor da classe Aposta
             this.golsTimeA = golsTimeA;
             this.golsTimeB = golsTimeB;
             calcularOdds();
@@ -57,8 +66,8 @@ package fortunex.classes;
     class Corrida extends Aposta {
         private int posicaoChegada;
 
-        public Corrida(double valorApostado, int posicaoChegada) {
-            super(valorApostado, 0);
+        public Corrida(int id, double valorApostado, int posicaoChegada) {
+            super(id, valorApostado, 0); // O 'id' foi adicionado aqui
             this.posicaoChegada = posicaoChegada;
             calcularOdds();
         }
@@ -87,8 +96,8 @@ package fortunex.classes;
         private int pontosTimeA;
         private int pontosTimeB;
 
-        public PartidaBasquete(double valorApostado, int pontosTimeA, int pontosTimeB) {
-            super(valorApostado, 0);
+        public PartidaBasquete(int id, double valorApostado, int pontosTimeA, int pontosTimeB) {
+            super(id, valorApostado, 0); // O 'id' foi adicionado aqui
             this.pontosTimeA = pontosTimeA;
             this.pontosTimeB = pontosTimeB;
             calcularOdds();

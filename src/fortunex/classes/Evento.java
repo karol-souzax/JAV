@@ -1,24 +1,27 @@
+// Conteúdo do arquivo Evento.java
 package fortunex.classes;
 
 public abstract class Evento {
+    protected int id; // Novo atributo ID
     protected String nome;
     protected String local;
     protected double valorAposta;
 
-    // Construtor padrão
     public Evento() {}
 
-    // Construtor completo
-    public Evento(String nome, String local, double valorAposta) {
+    public Evento(int id, String nome, String local, double valorAposta) {
+        this.id = id;
         this.nome = nome;
         this.local = local;
         this.valorAposta = valorAposta;
     }
 
-    // Método abstrato
+    public int getId() {
+        return id;
+    }
+
     public abstract void mostrarInfo();
 
-    // Getters e Setters
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
@@ -27,8 +30,4 @@ public abstract class Evento {
 
     public double getValorAposta() { return valorAposta; }
     public void setValorAposta(double valorAposta) { this.valorAposta = valorAposta; }
-
-     public Object getId() {
-         return null;
-     }
 }

@@ -19,9 +19,10 @@ public class ApostaServico implements IServico<Aposta> {
     }
 
 
-    public void remover(Aposta id) {
-        RepAposta.remover((Usuario) id);
+    public void remover(Aposta aposta) {
+        RepAposta.remover(aposta);
     }
+
 
 
     public void alterar(int index, Aposta obj) {

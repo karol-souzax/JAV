@@ -7,6 +7,6 @@ public interface Repositorio<t> {
 
     void cadastrar(t obj);
     void atualizar(t obj);
-    void remover(Evento id);
+    void remover(t obj);
     List<t> listar();
 }

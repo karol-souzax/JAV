@@ -14,7 +14,7 @@ public class RepAposta implements Repositorio<Aposta> {
     }
 
     @Override
-    public void remover(Evento obj) {
+    public void remover(Aposta obj) {
         apostas.remove(obj);
     }
 
@@ -26,12 +26,12 @@ public class RepAposta implements Repositorio<Aposta> {
 
     public void atualizar(Aposta obj) {
         for (int i = 0; i < apostas.size(); i++) {
-            if (apostas.get(i).getId() == obj.getId()) {
+            if (apostas.get(i).getID() == obj.getID()) {
                 apostas.set(i, obj);
                 return;
             }
         }
-        System.out.println("Aposta com ID " + obj.getId() + " nao encontrada.");
+        System.out.println("Aposta com ID " + obj.getID() + " nao encontrada.");
 
     }
 

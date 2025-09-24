@@ -1,3 +1,4 @@
+// Conteúdo do arquivo UsuarioServico.java
 package fortunex.servicos;
 
 import fortunex.classes.Usuario;
@@ -10,20 +11,27 @@ public class UsuarioServico implements IServico<Usuario> {
     private final RepUsuario RepUsuario;
 
     public UsuarioServico() {
-
         this.RepUsuario = new RepUsuario();
     }
 
-// Implementação dos métodos da interface IServico
+    // Método para autenticar o login
+    public boolean autenticar(String email, String senha) {
+        for (Usuario u : RepUsuario.listar()) {
+            if (u.getEmail().equals(email) && u.getSenha().equals(senha)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public void adicionar(Usuario usuario) {
         RepUsuario.cadastrar(usuario);
     }
 
-// Implementação dos métodos da interface IServico
     @Override
-    public void remover(Usuario id) {
-        RepUsuario.remover(id);
+    public void remover(Usuario usuario) {
+        RepUsuario.remover(usuario);
     }
 
     @Override
@@ -33,9 +41,6 @@ public class UsuarioServico implements IServico<Usuario> {
 
     @Override
     public List<Usuario> listarTodos() {
-
         return RepUsuario.listar();
     }
-
 }
-
