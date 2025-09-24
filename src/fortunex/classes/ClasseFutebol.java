@@ -1,6 +1,6 @@
 package fortunex.classes;
 
-public class ClasseFutebol {
+public class ClasseFutebol extends Evento {
     private String timeCasa;
     private String timeVisitante;
     private int golsCasa;
@@ -33,6 +33,11 @@ public class ClasseFutebol {
         } else {
             return "Empate!!";
         }
+    }
+
+    @Override
+    public void mostrarInfo() {
+
     }
 }
 

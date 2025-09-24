@@ -1,6 +1,6 @@
 package fortunex.classes;
 
-public class ClasseBasquete {
+public class ClasseBasquete extends Evento {
     private String timeCasa;
     private String timeVisitante;
     private int pontosCasa;
@@ -47,5 +47,10 @@ public class ClasseBasquete {
         int total = pontosCasa + pontosVisitantes;
         if (total == 0) return 0.5;
         return (double) pontosVisitantes / total;
+    }
+
+    @Override
+    public void mostrarInfo() {
+
     }
 }

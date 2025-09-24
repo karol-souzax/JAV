@@ -6,8 +6,9 @@ import fortunex.classes.Usuario;
 import fortunex.servicos.UsuarioServico;
 
 public class menuPrincipal {
+
     public static void iniciar() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);// Scanner para entrada do usuario
         UsuarioServico usuarioServico = new UsuarioServico();
 
         int opcao;
@@ -27,7 +28,10 @@ public class menuPrincipal {
                     String nome = sc.nextLine();
                     System.out.print("Email: ");
                     String email = sc.nextLine();
-                    usuarioServico.cadastrar(new Usuario(nome, email));
+                    System.out.print("Senha (números apenas): ");
+                    int senha = sc.nextInt();
+                    sc.nextLine();
+                    Usuario novoUsuario = new Usuario(nome, email, senha);
                     break;
                 case 2:
                     usuarioServico.listar();
@@ -35,14 +39,14 @@ public class menuPrincipal {
                 case 3:
                     System.out.print("Nome do usuário para remover: ");
                     String nomeRemover = sc.nextLine();
-                    Usuario usuario = new Usuario(nomeRemover);
+                    Usuario usuario = new Usuario(nomeRemover, "", 5263);
                     usuarioServico.remover(usuario);
                     break;
                 case 0:
-                    System.out.println("👋 Saindo do sistema...");
+                    System.out.println(" Saindo do sistema...");
                     break;
                 default:
-                    System.out.println("❌ Opção inválida!");
+                    System.out.println(" Opção inválida!");
             }
         } while (opcao != 0);
     }

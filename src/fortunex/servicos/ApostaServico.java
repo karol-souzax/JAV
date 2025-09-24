@@ -1,35 +1,35 @@
 package fortunex.servicos;
-
+import fortunex.classes.Aposta;
+import fortunex.classes.Usuario;
 import fortunex.repositorios.RepAposta;
 
 import java.util.List;
 
-public class ApostaServico implements IServico<Object> {
-
-    private RepAposta repAposta;
+public class ApostaServico implements IServico<Aposta> {
+    private final RepAposta RepAposta;
 
     public ApostaServico() {
-        this.repAposta = new RepAposta();
+
+        this.RepAposta = new RepAposta();
+    }
+
+    @Override
+    public void adicionar(Aposta aposta) {
+        RepAposta.cadastrar(aposta);
     }
 
 
-    public void adicionar(Object aposta) {
-        repAposta.adicionarAposta(aposta);
+    public void remover(Aposta id) {
+        RepAposta.remover((Usuario) id);
     }
 
 
-    public void remover(int id) {
-        repAposta.removerAposta(id);
+    public void alterar(int index, Aposta obj) {
+        RepAposta.atualizar(obj);
     }
 
-
-    public Object buscarPorId(int id) {
-        return repAposta.buscarApostaPorId(id);
-    }
-
-
-    public List<Object> listarTodos() {
-        return repAposta.listarApostas();
+    public List<Aposta> listarTodos() {
+        return RepAposta.listar();
     }
 }
 

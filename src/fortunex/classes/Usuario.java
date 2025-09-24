@@ -1,10 +1,14 @@
 package fortunex.classes;
 import java.util.Scanner;
-public class Usuario extends rename {
+public class Usuario extends Aposta {
 
 
-    public Usuario(String nome, String email, String senha) {
+    public Usuario(String nome, String email, int senha) {
 
+    }
+
+    public Object getId() {
+        return 0;
     }
 
     public class Main {

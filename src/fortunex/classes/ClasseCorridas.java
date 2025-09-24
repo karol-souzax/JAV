@@ -1,6 +1,6 @@
 package fortunex.classes;
 
-public class ClasseCorridas {
+public class ClasseCorridas extends Evento {
     private String competidor1;
     private String competidor2;
     private double tempoCompetidor1;
@@ -38,5 +38,10 @@ public class ClasseCorridas {
     public void exibirTempos() {
         System.out.println(competidor1 + ": " + tempoCompetidor1 + " segundos");
         System.out.println(competidor2 + ": " + tempoCompetidor2 + " segundos");
+    }
+
+    @Override
+    public void mostrarInfo() {
+
     }
 }

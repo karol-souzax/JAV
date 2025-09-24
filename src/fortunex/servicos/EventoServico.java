@@ -1,13 +1,12 @@
 package fortunex.servicos;
 
-import fortunex.classes.ClasseFutebol;
-import fortunex.classes.ClasseBasquete;
-import fortunex.classes.ClasseCorridas;
+import fortunex.classes.Evento;
+import fortunex.classes.Usuario;
 import fortunex.repositorios.RepEvento;
 
 import java.util.List;
 
-public class EventoServico implements IServico<Object> {
+public class EventoServico implements IServico<Evento> {
 
     private RepEvento repEvento;
 
@@ -15,23 +14,22 @@ public class EventoServico implements IServico<Object> {
         this.repEvento = new RepEvento();
     }
 
-
-    public void adicionar(Object evento) {
-        repEvento.adicionarEvento(evento);
+    @Override
+    public void adicionar( Evento evento) {
+        repEvento.cadastrar(evento);
     }
 
-
-    public void remover(int id) {
-        repEvento.removerEvento(id);
+    @Override
+    public void remover(Evento id) {
+        repEvento.remover(id);
+    }
+    @Override
+    public void alterar(int index, Evento obj) {
+        repEvento.atualizar(obj);
     }
 
-
-    public Object buscarPorId(int id) {
-        return repEvento.buscarEventoPorId(id);
-    }
-
-
-    public List<Object> listarTodos() {
-        return repEvento.listarEventos();
+    @Override
+    public List<Evento> listarTodos() {
+        return repEvento.listar();
     }
 }
