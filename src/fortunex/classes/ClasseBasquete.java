@@ -6,7 +6,7 @@ public class ClasseBasquete extends Evento {
     private int pontosCasa;
     private int pontosVisitantes;
 
-    public ClasseBasquete(String timeCasa, String timeVisitante) {
+    public ClasseBasquete(int i, String timeCasa, String timeVisitante, double v, String lakersXCeltics) {
         this.timeCasa = timeCasa;
         this.timeVisitante = timeVisitante;
         this.pontosCasa = 0;

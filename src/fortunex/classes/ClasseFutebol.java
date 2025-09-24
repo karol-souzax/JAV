@@ -6,7 +6,7 @@ public class ClasseFutebol extends Evento {
     private int golsCasa;
     private int golsVisitante;
 
-    public ClasseFutebol(String timeCasa, String timeVisitante) {
+    public ClasseFutebol(int i, String timeCasa, String timeVisitante, double v, String flamengoXPalmeiras) {
         this.timeCasa = timeCasa;
         this.timeVisitante = timeVisitante;
         this.golsCasa = 0;

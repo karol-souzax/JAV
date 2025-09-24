@@ -1,8 +1,10 @@
 // Conteúdo do arquivo menuPrincipal.java
 package fortunex.menu;
-
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
-import fortunex.classes.Usuario;
+
+import fortunex.classes.*;
 import fortunex.servicos.UsuarioServico;
 
 public class menuPrincipal {
@@ -13,7 +15,7 @@ public class menuPrincipal {
 
         int opcao;
         do {
-            System.out.println("\n=== BETFAIR - MENU ===");
+            System.out.println("\n=== FORTUNEX - MENU ===");
             System.out.println("1. Cadastrar Usuário");
             System.out.println("2. Fazer Login");
             System.out.println("3. Listar Usuários");

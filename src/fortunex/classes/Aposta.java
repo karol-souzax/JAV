@@ -1,37 +1,48 @@
 package fortunex.classes;
 
-public class Aposta {
-    protected int id; // Adicione um ID para identificar cada aposta
-    protected double valorApostado;
-    protected double odd; // multiplicador da aposta
+public abstract class Aposta {
+    public int id; // identificador da aposta
+    public double valorApostado;
+    public double odd; // multiplicador da aposta
+    public Usuario usuario; // quem fez a aposta
+    public Evento evento; // em qual evento foi feita
 
-    // Atualize o construtor para receber o ID
     public Aposta(int id, double valorApostado, double odd) {
         this.id = id;
         this.valorApostado = valorApostado;
         this.odd = odd;
     }
-
-    // Adicione o método getID()
-    public int getID() {
-        return id;
+    public Aposta(int i, double v, double v1, Usuario usuario, Evento evento) {
+        this.usuario = usuario;
+        this.evento = evento;
     }
+    // Getters
 
-    // Método comum para calcular o retorno
+    public int getId() { return id; }
+    public double getValorApostado() { return valorApostado; }
+    public double getOdd() { return odd; }
+    public Usuario getUsuario() { return usuario; }
+    public Evento getEvento() { return evento; }
+
+    // Calcula o retorno da aposta
     public double calcularRetorno() {
         return valorApostado * odd;
     }
 
-    // Método que cada esporte vai implementar
-    public void calcularOdds(){
-
+    // Exibe as informações da aposta
+    public void mostrarAposta() {
+        System.out.println("📌 Aposta ID: " + id);
+        System.out.println("👤 Usuário: " + usuario.getNome());
+        System.out.println("🎯 Evento: " + evento.getNome() + " (ID: " + evento.getId() + ")");
+        System.out.println("💰 Valor Apostado: R$ " + valorApostado);
+        System.out.println("📈 Odd: " + odd);
+        System.out.println("🏆 Possível Retorno: R$ " + calcularRetorno());
     }
-    public double getOdd() {
-        return odd;
-    }
 
-    public double getValorApostado() {
-        return valorApostado;
+    public abstract void calcularOdds();
+
+    public Object getID() {
+        return null;
     }
 }
 // As subclasses JogoFutebol, Corrida e PartidaBasquete também precisarão ser atualizadas
@@ -39,22 +50,22 @@ public class Aposta {
 
     // Subclasse para Jogo de Futebol
     class JogoFutebol extends Aposta {
-        private int golsTimeA;
-        private int golsTimeB;
+        private final int goalsTimeA;
+        private final int golsTimeB;
 
         // Conteúdo da classe JogoFutebol
-        public JogoFutebol(int id, double valorApostado, int golsTimeA, int golsTimeB) {
+        public JogoFutebol(int id, double valorApostado, int goalsTimeA, int golsTimeB) {
             super(id, valorApostado, 0); // O 'super' chama o construtor da classe Aposta
-            this.golsTimeA = golsTimeA;
+            this.goalsTimeA = goalsTimeA;
             this.golsTimeB = golsTimeB;
             calcularOdds();
         }
 
         @Override
         public void calcularOdds() {
-            if (golsTimeA > golsTimeB) {
+            if (goalsTimeA > golsTimeB) {
                 odd = 2.0; // vitória do time A
-            } else if (golsTimeB > golsTimeA) {
+            } else if (golsTimeB > goalsTimeA) {
                 odd = 2.5; // vitória do time B
             } else {
                 odd = 3.0; // empate
@@ -64,7 +75,7 @@ public class Aposta {
 
     // Subclasse para Corrida
     class Corrida extends Aposta {
-        private int posicaoChegada;
+        public int posicaoChegada;
 
         public Corrida(int id, double valorApostado, int posicaoChegada) {
             super(id, valorApostado, 0); // O 'id' foi adicionado aqui
@@ -93,8 +104,8 @@ public class Aposta {
 
     // Subclasse para Partida de Basquete
     class PartidaBasquete extends Aposta {
-        private int pontosTimeA;
-        private int pontosTimeB;
+        private final int pontosTimeA;
+        private final int pontosTimeB;
 
         public PartidaBasquete(int id, double valorApostado, int pontosTimeA, int pontosTimeB) {
             super(id, valorApostado, 0); // O 'id' foi adicionado aqui
