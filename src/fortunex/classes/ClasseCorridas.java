@@ -6,7 +6,7 @@ public class ClasseCorridas extends Evento {
     private double tempoCompetidor1;
     private double tempoCompetidor2;
 
-    public ClasseCorridas(int i, String competidor1, String competidor2, double v, String hamilton) {
+    public ClasseCorridas(int id, String competidor1, String competidor2, double v, String hamilton) {
         this.competidor1 = competidor1;
         this.competidor2 = competidor2;
         this.tempoCompetidor1 = 0.0;
