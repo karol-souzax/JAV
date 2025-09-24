@@ -1,7 +1,7 @@
 // Conteúdo do arquivo menuPrincipal.java
 package fortunex.menu;
-import java.util.List;
-import java.util.ArrayList;
+import fortunex.classes.Usuario;
+import fortunex.servicos.UsuarioServico;
 import java.util.Scanner;
 
 import fortunex.classes.*;
@@ -45,6 +45,7 @@ public class menuPrincipal {
 
                     if (usuarioServico.autenticar(emailLogin, senhaLogin)) {
                         System.out.println("✅ Login realizado com sucesso!");
+
                         // CHAMADA PARA O NOVO MENU DE APOSTAS
                         MenuApostas.iniciar(); // Chamada para a nova classe
                     } else {

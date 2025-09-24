@@ -1,9 +1,4 @@
-package fortunex.menu;
-
-import fortunex.classes.ClasseBasquete;
-import fortunex.classes.ClasseCorridas;
-import fortunex.classes.ClasseFutebol;
-import fortunex.classes.Evento;
+package fortunex.classes;
 
 import java.util.ArrayList;
 import java.util.List;
