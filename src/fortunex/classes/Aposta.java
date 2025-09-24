@@ -11,7 +11,6 @@ package fortunex.classes;
             this.valorApostado = valorApostado;
             this.odd = odd;
         }
-
         // Método comum para calcular o retorno
         public double calcularRetorno() {
             return valorApostado * odd;
