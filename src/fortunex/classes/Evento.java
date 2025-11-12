@@ -1,19 +1,19 @@
-// Conteúdo do arquivo Evento.java
 package fortunex.classes;
 
 public abstract class Evento {
-    protected int id; // Novo atributo ID
+    protected int id;
     protected String nome;
     protected String local;
     protected double valorAposta;
+    protected String tipo;
 
-    public Evento() {}
 
-    public Evento(int id, String nome, String local, double valorAposta) {
-        this.id = id;
+    public Evento() {
+        this.id= id;
         this.nome = nome;
-        this.local = local;
         this.valorAposta = valorAposta;
+        this.tipo = tipo;
+        this.local= local;
     }
 
     public int getId() {
@@ -33,13 +33,6 @@ public abstract class Evento {
         this.nome = nome;
     }
 
-    public String getLocal() {
-        return local;
-    }
-    public void setLocal(String local) {
-        this.local = local;
-    }
-
     public double getValorAposta() {
         return valorAposta;
     }
@@ -51,5 +44,13 @@ public abstract class Evento {
     }
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
     }
 }

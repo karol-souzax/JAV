@@ -24,9 +24,10 @@ public class MenuApostas {
                     System.out.println("📌 Lista de Eventos Disponíveis:");
                     for (Evento e : eventos) {
                         System.out.println("ID: " + e.getId() +
-                                " | " + e.getNome() +
+                                " | Nome: " + e.getNome() +
                                 " | Local: " + e.getLocal() +
-                                " | Valor: R$" + e.getValorAposta());
+                                " | Valor: R$" + e.getValorAposta() +
+                                " | Tipo: " + e.getTipo());
                     }
                     break;
                 case 0:

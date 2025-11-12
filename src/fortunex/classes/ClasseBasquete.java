@@ -6,12 +6,19 @@ public class ClasseBasquete extends Evento {
     private int pontosCasa;
     private int pontosVisitantes;
 
-    public ClasseBasquete(int i, String timeCasa, String timeVisitante, double v, String lakersXCeltics) {
+    public ClasseBasquete(int i, String nome, String local, double va, String tipo) {
+        this.id=i;
+        this.nome=nome;
+        this.local=local;
+        this.valorAposta=va;
+        this.tipo=tipo;
         this.timeCasa = timeCasa;
         this.timeVisitante = timeVisitante;
         this.pontosCasa = 0;
         this.pontosVisitantes = 0;
     }
+
+
 
 
     public void marcarPontosCasa(int pontos) {

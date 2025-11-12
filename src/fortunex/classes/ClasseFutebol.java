@@ -6,10 +6,15 @@ public class ClasseFutebol extends Evento {
     private int golsCasa;
     private int golsVisitante;
 
-    public ClasseFutebol(int i, String timeCasa, String timeVisitante, double v, String flamengoXPalmeiras) {
+    public ClasseFutebol(int i, String nome, String local, double v, String tipo) {
+        this.id=i;
+        this.nome=nome;
+        this.local=local;
+        this.valorAposta=v;
+        this.tipo=tipo;
         this.timeCasa = timeCasa;
         this.timeVisitante = timeVisitante;
-        this.golsCasa = 0;
+        this.golsCasa = 0;  
         this.golsVisitante = 0;
     }
 

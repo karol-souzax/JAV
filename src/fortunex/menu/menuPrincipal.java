@@ -46,8 +46,7 @@ public class menuPrincipal {
                     if (usuarioServico.autenticar(emailLogin, senhaLogin)) {
                         System.out.println("✅ Login realizado com sucesso!");
 
-                        // CHAMADA PARA O NOVO MENU DE APOSTAS
-                        MenuApostas.iniciar(); // Chamada para a nova classe
+                        MenuApostas.iniciar(); // Chamada para a outra classe
                     } else {
                         System.out.println("❌ Email ou senha incorretos!");
                     }

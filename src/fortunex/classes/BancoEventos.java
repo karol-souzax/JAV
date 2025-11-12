@@ -8,10 +8,11 @@ public class BancoEventos {
 
     static {
         eventos.add(new ClasseFutebol(1, "Final Libertadores", "Maracanã", 100.0, "Flamengo x Palmeiras"));
-        eventos.add(new ClasseBasquete(2, "NBA Finals", "Madison Square Garden", 200.0, "Lakers x Celtics"));
+        eventos.add(new ClasseBasquete(2, "NBA", "Madison Square Garden" ,200.0, " Celties X Lacerks"));
         eventos.add(new ClasseCorridas(3, "Fórmula 1 GP Brasil", "Interlagos", 150.0, "Hamilton"));
     }
     public static List<Evento> getEventos() {
+
         return eventos;
     }
 
