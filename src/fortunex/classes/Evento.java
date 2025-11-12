@@ -43,5 +43,13 @@ public abstract class Evento {
     public double getValorAposta() {
         return valorAposta;
     }
-    public void setValorAposta(double valorAposta) { this.valorAposta = valorAposta; }
+    public void setValorAposta(double valorAposta) {
+        this.valorAposta = valorAposta;
+    }
+    public String getTipo() {
+        return tipo;
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 }
