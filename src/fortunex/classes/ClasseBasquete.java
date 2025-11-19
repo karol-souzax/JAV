@@ -13,11 +13,11 @@ public class ClasseBasquete extends Evento {
 
     public ClasseBasquete(int i, String nome, String local, double va, String tipo) {
         // inicializando os atributos herdados da classe Evento
-        this.id=i;
-        this.nome=nome;
-        this.local=local;
-        this.valorAposta=va;
-        this.tipo=tipo;
+        this.id = i;
+        this.nome = nome;
+        this.local = local;
+        this.valorAposta = va;
+        this.tipo = tipo;
 
         // times não são recebidos no construtor, então ficam como null
         this.timeCasa = timeCasa;
@@ -71,6 +71,6 @@ public class ClasseBasquete extends Evento {
 
     @Override
     public void mostrarInfo() {
-        // método da classe Evento, ainda não implementado
+        // exibe informações do evento de basquete
     }
 }

@@ -5,7 +5,6 @@ import fortunex.servicos.UsuarioServico;
 import java.util.Scanner;
 
 import fortunex.classes.*;
-import fortunex.servicos.UsuarioServico;
 
 public class menuPrincipal {
 

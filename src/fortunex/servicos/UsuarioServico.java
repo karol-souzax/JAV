@@ -3,16 +3,20 @@ package fortunex.servicos;
 
 import fortunex.classes.Usuario;
 import fortunex.repositorios.RepUsuario;
-
 import java.util.List;
 
 public class UsuarioServico implements IServico<Usuario> {
 
-    private final RepUsuario RepUsuario;
+    private final RepUsuario RepUsuario;// Repositório de Usuário
 
     public UsuarioServico() {
-        this.RepUsuario = new RepUsuario();
-    }
+        this.RepUsuario = new RepUsuario() {
+            @Override
+            public void remover(int id) {
+
+            }
+        };
+    }// Construtor
 
     // Método para autenticar o login
     public boolean autenticar(String email, String senha) {
@@ -25,13 +29,18 @@ public class UsuarioServico implements IServico<Usuario> {
     }
 
     @Override
+    public void remover(int id) {
+        RepUsuario.remover();
+    }
+
+    @Override
     public void adicionar(Usuario usuario) {
         RepUsuario.cadastrar(usuario);
     }
 
     @Override
     public void remover(Usuario usuario) {
-        RepUsuario.remover(usuario);
+        RepUsuario.remover();
     }
 
     @Override

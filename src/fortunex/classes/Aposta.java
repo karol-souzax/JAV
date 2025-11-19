@@ -1,84 +1,118 @@
 package fortunex.classes;
-
 public abstract class Aposta {
-    public int id; // identificador da aposta
-    public double valorApostado;
-    public double odd; // multiplicador da aposta
-    public Usuario usuario; // quem fez a aposta
-    public Evento evento; // em qual evento foi feita
 
-    public Aposta(int id, double valorApostado, double odd) {
+    private int id;
+    private double valorApostado;
+    private Evento eventoSelecionado;
+    protected double odd; // protected para que subclasses possam alterar
+    private Usuario usuario;
+    private Evento evento;
+
+
+    public Aposta(int id, double valorApostado,Usuario usuario, Evento evento) {
         this.id = id;
         this.valorApostado = valorApostado;
-        this.odd = odd;
-    }
-    public Aposta(int i, double v, double v1, Usuario usuario, Evento evento) {
         this.usuario = usuario;
         this.evento = evento;
     }
-    // Getters
 
-    public int getId() { return id; }
-    public double getValorApostado() { return valorApostado; }
-    public double getOdd() { return odd; }
-    public Usuario getUsuario() { return usuario; }
-    public Evento getEvento() { return evento; }
+    public Aposta(int idAposta, double valorAposta, Evento eventoSelecionado) {
+    }
 
-    // Calcula o retorno da aposta
+    public int getId() {
+        return id;
+    }
+
+    public double getValorApostado() {
+        return valorApostado;
+    }
+
+    public double getOdd() {
+        return odd;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    // ───────── MÉTODOS DE NEGÓCIO ─────────
+
+    /**
+     * Calcula o retorno total da aposta.
+     */
     public double calcularRetorno() {
         return valorApostado * odd;
     }
 
-    // Exibe as informações da aposta
+    /**
+     * Mostra informações da aposta no console.
+     */
     public void mostrarAposta() {
-        System.out.println("📌 Aposta ID: " + id);
-        System.out.println("👤 Usuário: " + usuario.getNome());
-        System.out.println("🎯 Evento: " + evento.getNome() + " (ID: " + evento.getId() + ")");
-        System.out.println("💰 Valor Apostado: R$ " + valorApostado);
-        System.out.println("📈 Odd: " + odd);
-        System.out.println("🏆 Possível Retorno: R$ " + calcularRetorno());
+        System.out.println("\n=== DETALHES DA APOSTA ===");
+        System.out.println("ID: " + id);
+        System.out.println("Usuário: " + usuario.getNome());
+        System.out.println("Evento: " + evento.getNome());
+        System.out.println("Valor Apostado: R$ " + valorApostado);
+        System.out.println("Odd: " + odd);
+        System.out.println("Possível Retorno: R$ " + calcularRetorno());
     }
 
+    /**
+     * Cada tipo de aposta deve calcular sua odd específica.
+     */
     public abstract void calcularOdds();
-
-    public Object getID() {
-        return null;
-    }
 }
+
 // As subclasses JogoFutebol, Corrida e PartidaBasquete também precisarão ser atualizadas
 // para chamar o novo construtor da superclasse Aposta
 
     // Subclasse para Jogo de Futebol
     class JogoFutebol extends Aposta {
-        private final int goalsTimeA;
-        private final int golsTimeB;
+        private final int golsA;
+        private final int golsB;
 
-        // Conteúdo da classe JogoFutebol
-        public JogoFutebol(int id, double valorApostado, int goalsTimeA, int golsTimeB) {
-            super(id, valorApostado, 0); // O 'super' chama o construtor da classe Aposta
-            this.goalsTimeA = goalsTimeA;
-            this.golsTimeB = golsTimeB;
+        public JogoFutebol(
+                int id,
+                double valorApostado,
+                Usuario usuario,
+                Evento evento,
+                int golsA,
+                int golsB
+        ) {
+            super(id, valorApostado, usuario, evento);
+            this.golsA = golsA;
+            this.golsB = golsB;
             calcularOdds();
         }
 
         @Override
         public void calcularOdds() {
-            if (goalsTimeA > golsTimeB) {
-                odd = 2.0; // vitória do time A
-            } else if (golsTimeB > goalsTimeA) {
-                odd = 2.5; // vitória do time B
-            } else {
-                odd = 3.0; // empate
-            }
+            if (golsA > golsB)
+                odd = 2.0;
+            else if (golsB > golsA)
+                odd = 2.5;
+            else
+                odd = 3.0;
         }
     }
 
     // Subclasse para Corrida
-    class Corrida extends Aposta {
-        public int posicaoChegada;
+     class Corrida extends Aposta {
 
-        public Corrida(int id, double valorApostado, int posicaoChegada) {
-            super(id, valorApostado, 0); // O 'id' foi adicionado aqui
+        private int posicaoChegada;
+
+        public Corrida(
+                int id,
+                double valorApostado,
+                Usuario usuario,
+                Evento evento,
+                int posicaoChegada
+        ) {
+            super(id, valorApostado,usuario, evento);
             this.posicaoChegada = posicaoChegada;
             calcularOdds();
         }
@@ -86,44 +120,44 @@ public abstract class Aposta {
         @Override
         public void calcularOdds() {
             switch (posicaoChegada) {
-                case 1:
-                    odd = 6.0; // campeão da corrida
-                    break;
-                case 2:
-                    odd = 3.0; // segundo lugar
-                    break;
-                case 3:
-                    odd = 2.0; // terceiro lugar
-                    break;
-                default:
-                    odd = 1.1; // qualquer outra posição dá retorno baixo
-                    break;
+                case 1 -> odd = 6.0;
+                case 2 -> odd = 3.0;
+                case 3 -> odd = 2.0;
+                default -> odd = 1.1;
             }
         }
     }
 
     // Subclasse para Partida de Basquete
-    class PartidaBasquete extends Aposta {
-        private final int pontosTimeA;
-        private final int pontosTimeB;
+     class PartidaBasquete extends Aposta {
 
-        public PartidaBasquete(int id, double valorApostado, int pontosTimeA, int pontosTimeB) {
-            super(id, valorApostado, 0); // O 'id' foi adicionado aqui
-            this.pontosTimeA = pontosTimeA;
-            this.pontosTimeB = pontosTimeB;
+        private final int pontosA;
+        private final int pontosB;
+
+        public PartidaBasquete(
+                int id,
+                double valorApostado,
+                Usuario usuario,
+                Evento evento,
+                int pontosA,
+                int pontosB
+        ) {
+            super(id, valorApostado,usuario, evento);
+            this.pontosA = pontosA;
+            this.pontosB = pontosB;
             calcularOdds();
         }
 
         @Override
         public void calcularOdds() {
-            int diferenca = Math.abs(pontosTimeA - pontosTimeB);
-            if (diferenca > 20) {
-                odd = 1.5; // vitória fácil
-            } else if (diferenca > 10) {
-                odd = 2.0; // vitória moderada
-            } else {
-                odd = 3.0; // jogo equilibrado
-            }
+            int diff = Math.abs(pontosA - pontosB);
+
+            if (diff > 20)
+                odd = 1.5;
+            else if (diff > 10)
+                odd = 2.0;
+            else
+                odd = 3.0;
         }
     }
 

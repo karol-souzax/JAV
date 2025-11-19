@@ -4,7 +4,7 @@ import fortunex.classes.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepUsuario implements Repositorio<Usuario> {
+public abstract class RepUsuario implements Repositorio<Usuario> {
     private final List<Usuario> usuarios = new ArrayList<>();
 
     @Override
@@ -23,8 +23,8 @@ public class RepUsuario implements Repositorio<Usuario> {
     }
 
     @Override // Adicione a anotação para indicar que está sobrescrevendo o método da interface
-    public void remover(Usuario u) {
-        usuarios.remove(u);
+    public void remover() {
+        usuarios.remove(0); // Remove o primeiro usuário da lista como exemplo
     }
 
     @Override

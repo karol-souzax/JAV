@@ -11,8 +11,14 @@ public class ClasseCorridas extends Evento {
     private double tempoCompetidor1;
     private double tempoCompetidor2;
 
-    public ClasseCorridas(int i, String competidor1, String competidor2, double v, String hamilton) {
+    public ClasseCorridas(int i, String nome, String ignoredLocal, double v, String tipo) {
+
         // construtor recebendo dados, mas usando apenas os competidores
+        this.id=i;
+        this.nome=nome;
+        this.local=local;
+        this.valorAposta=v;
+        this.tipo=tipo;
         this.competidor1 = competidor1;
         this.competidor2 = competidor2;
         // tempos começam zerados

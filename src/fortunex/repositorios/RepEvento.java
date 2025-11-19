@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import fortunex.classes.Evento;
 
 
-public class RepEvento implements Repositorio<Evento>{
+public abstract class RepEvento implements Repositorio<Evento>{
     private final List<Evento> eventos = new ArrayList<>();// Lista para armazenar os eventos
 
     @Override
@@ -26,7 +26,7 @@ public class RepEvento implements Repositorio<Evento>{
     }
 
     @Override
-    public void remover(Evento id) {
+    public void remover( int id) {
         eventos.remove(id);// Remove o evento com o id especificado
 
     }

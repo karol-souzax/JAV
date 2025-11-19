@@ -1,9 +1,9 @@
 package fortunex.classes;
 
 public class Usuario {
-    private String nome;
-    private String email;
-    private String senha;
+    public String nome;
+    public String email;
+    public String senha;
 
     public Usuario(String nome, String email, String senha) {
         this.nome = nome;

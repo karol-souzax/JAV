@@ -3,7 +3,6 @@ package fortunex.repositorios;
 import java.util.ArrayList;
 import java.util.List;
 import fortunex.classes.Aposta;
-import fortunex.classes.Evento;
 
 public class RepAposta implements Repositorio<Aposta> {
     private final List<Aposta> apostas = new ArrayList<>();
@@ -14,8 +13,13 @@ public class RepAposta implements Repositorio<Aposta> {
     }
 
     @Override
-    public void remover(Aposta obj) {
-        apostas.remove(obj);
+    public void remover() {
+        apostas.remove(0); // Remove a primeira aposta da lista como exemplo
+    }
+
+    @Override
+    public void remover(int id) {
+
     }
 
     @Override
@@ -26,12 +30,12 @@ public class RepAposta implements Repositorio<Aposta> {
 
     public void atualizar(Aposta obj) {
         for (int i = 0; i < apostas.size(); i++) {
-            if (apostas.get(i).getID() == obj.getID()) {
+            if (apostas.get(i).getId() == obj.getId()) {
                 apostas.set(i, obj);
                 return;
             }
         }
-        System.out.println("Aposta com ID " + obj.getID() + " nao encontrada.");
+        System.out.println("Aposta com ID " + obj.getId() + " nao encontrada.");
 
     }
 
